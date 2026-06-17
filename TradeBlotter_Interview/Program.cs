@@ -33,6 +33,12 @@ using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<TradeBlotterDbContext>();
     db.Database.EnsureCreated();
+
+    // The repo lives under a OneDrive-synced path. WAL mode keeps persistent -wal/-shm
+    // sidecar files that must stay byte-in-sync with the main db file; cloud sync clients
+    // sync each file independently, which can silently desync/reset the database. Rollback
+    // journal mode has no persistent sidecar files, so it survives cloud-synced folders.
+    db.Database.ExecuteSqlRaw("PRAGMA journal_mode=DELETE;");
 }
 
 if (app.Environment.IsDevelopment())
