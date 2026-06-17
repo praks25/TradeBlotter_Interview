@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37328.6 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeBlotter_Interview", "TradeBlotter_Interview\TradeBlotter_Interview.csproj", "{BEB42C07-8DF5-4130-9C58-3630A94A2DCD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEB42C07-8DF5-4130-9C58-3630A94A2DCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEB42C07-8DF5-4130-9C58-3630A94A2DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEB42C07-8DF5-4130-9C58-3630A94A2DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEB42C07-8DF5-4130-9C58-3630A94A2DCD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CC0C380B-E940-4145-B295-FCA9DAA22E72}
+	EndGlobalSection
+EndGlobal
