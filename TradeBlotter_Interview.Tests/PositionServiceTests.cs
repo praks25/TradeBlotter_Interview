@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Logging.Abstractions;
 using TradeBlotter_Interview.Models;
 using TradeBlotter_Interview.Services;
 
@@ -5,7 +6,7 @@ namespace TradeBlotter_Interview.Tests;
 
 public class PositionServiceTests
 {
-    private readonly PositionService _sut = new();
+    private readonly PositionService _sut = new(NullLogger<PositionService>.Instance);
 
     private static Trade Buy(string symbol, int qty, decimal price, DateTime timestamp) =>
         new() { Symbol = symbol, Side = "Buy", Quantity = qty, Price = price, Timestamp = timestamp };
