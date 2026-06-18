@@ -9,8 +9,11 @@ const store = useTradeStore()
 
 const symbol = ref('')
 const side = ref<Side | null>(null)
-const quantityInput = ref('')
-const priceInput = ref('')
+// type="number" inputs make Vue auto-cast v-model to a number once a valid
+// value is typed (it stays a string only while empty/invalid), so these
+// refs can hold either type depending on what's currently in the field.
+const quantityInput = ref<string | number>('')
+const priceInput = ref<string | number>('')
 const submitting = ref(false)
 
 const errors = reactive<{
@@ -42,13 +45,13 @@ function validate(): boolean {
   }
 
   const qty = Number(quantityInput.value)
-  if (quantityInput.value.trim() === '' || !Number.isInteger(qty) || qty <= 0) {
+  if (quantityInput.value === '' || !Number.isInteger(qty) || qty <= 0) {
     errors.quantity = 'Quantity must be a whole number greater than 0'
     valid = false
   }
 
   const prc = Number(priceInput.value)
-  if (priceInput.value.trim() === '' || !(prc > 0)) {
+  if (priceInput.value === '' || !(prc > 0)) {
     errors.price = 'Price must be greater than 0'
     valid = false
   }
