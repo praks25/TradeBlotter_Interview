@@ -4,7 +4,7 @@ import { useTradeStore } from '@/stores/tradeStore'
 const store = useTradeStore()
 
 function formatAvgCost(value: number): string {
-  return value.toFixed(4)
+  return '$' + value.toFixed(4)
 }
 
 function formatMarketValue(value: number): string {

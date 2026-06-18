@@ -97,7 +97,7 @@ async function handleSubmit() {
         id="symbol"
         type="text"
         :value="symbol"
-        placeholder="AAPL"
+        placeholder="Please enter a ticker symbol"
         maxlength="10"
         @input="onSymbolInput"
       />

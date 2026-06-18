@@ -36,11 +36,15 @@ export const useTradeStore = defineStore('trades', {
     },
 
     async submitTrade(req: CreateTradeRequest) {
+      // submitTrade owns its own loading lifecycle. We call the API functions
+      // directly (not the other actions) so loading isn't toggled multiple times.
       this.loading = true
       this.error = null
       try {
         await postTrade(req)
-        await Promise.all([this.fetchTrades(), this.fetchPositions()])
+        const [trades, positions] = await Promise.all([getTrades(), getPositions()])
+        this.trades = trades
+        this.positions = positions
       } catch (e) {
         this.error = e instanceof Error ? e.message : 'Failed to submit trade'
       } finally {
